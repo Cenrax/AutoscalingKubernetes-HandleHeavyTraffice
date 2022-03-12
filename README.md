@@ -87,4 +87,10 @@ We should get a output like this:
 
 <img width="325" alt="image" src="https://user-images.githubusercontent.com/43017632/158031002-c44d6dbb-4670-4da6-b7f0-a880db34b3f7.png">
 
+### Part 3: Visualize and Generate Traffic
 
+This part will be focused on the following parts:
+
+- Use Prometheus to get visibility into NGINX Ingress Controller performance
+- Use Locust to simulate a traffic surge
+- Observe the impact of increased traffic on NGINX Ingress Controller performance
