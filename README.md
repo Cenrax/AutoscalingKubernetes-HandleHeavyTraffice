@@ -152,5 +152,18 @@ We can verify using kubectl get pods and we should get something like this
 
 <img width="532" alt="image" src="https://user-images.githubusercontent.com/43017632/158031589-11472f61-cfae-4908-88dd-ad20d7417709.png">
 
+#### Step 3: Query Prometheus
+
+We can open the prometheus port in our tab and select nginx_ingress_nginx_connections_active in the search bar
+
+<img width="538" alt="image" src="https://user-images.githubusercontent.com/43017632/158031726-e704f9f5-1788-456d-9322-c80d3801f945.png">
+
+### Step 4: Installation of Locust
+
+We will use [Locust](https://locust.io/) to simulate a traffic surge that we can detect with the Prometheus dashboard.
+
+We will create a YAML file (3-locust.yaml) to create a pod for the load generator
+
+
 
 
