@@ -129,3 +129,23 @@ We will get a list of available metrics
 For scaling purposes, ***nginx_connections_active*** is ideal because it keeps track of the number of requests being actively processed, which will help you identify when a pod needs to scale.
 
 Type exit at the command prompt of the temporary pod to get back to the Kubernetes server.
+
+#### Step 3: Install Prometheus
+
+To trigger autoscaling based on nginx_connections_active, you need two tools:
+
+A mechanism to scrape the metrics - we'll use Prometheus
+A tool to store and expose the metrics so that Kubernetes can use them - we'll use KEDA.
+Prometheus is a popular open source project of the Cloud Native Computing Foundation (CNCF) for monitoring and alerting. NGINX Ingress Controller offers Prometheus metrics that are useful for visualization and troubleshooting.
+
+Add the Prometheus repository to Helm using this command:
+```
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+```
+Install prometheus using the following command
+
+```
+helm install prometheus prometheus-community/prometheus --set server.service.type=NodePort --set server.service.nodePort=30010
+```
+  
+
