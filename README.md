@@ -35,7 +35,7 @@ NAME                       READY   STATUS    RESTARTS   AGE
 podinfo-5d76864686-rd2s5   1/1     Running   0     
 
 ```
-
+If everything has run succesfully we will be able to see the app in our localhost
 
 ### Part 2
 
