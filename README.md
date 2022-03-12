@@ -148,4 +148,9 @@ Install prometheus using the following command
 helm install prometheus prometheus-community/prometheus --set server.service.type=NodePort --set server.service.nodePort=30010
 ```
   
+We can verify using kubectl get pods and we should get something like this
+
+<img width="532" alt="image" src="https://user-images.githubusercontent.com/43017632/158031589-11472f61-cfae-4908-88dd-ad20d7417709.png">
+
+
 
