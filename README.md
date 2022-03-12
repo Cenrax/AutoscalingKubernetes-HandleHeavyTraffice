@@ -194,6 +194,50 @@ Click "Start swarming" and observe the traffic reaching NGINX Ingress Controller
 
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/43017632/158035186-ba225d5d-06ad-46fc-9ad3-dc4cc479ca44.png">
 
+Now that you have traffic routing through NGINX Ingress Controller to your Podinfo app, we can return to Prometheus to see how the Ingress controller responds.
+As a vast amount of connections are issued, the single Ingress controller pod struggles to process the increased traffic without latency.
+Through observing where performance degrades, you might notice that 100 active connections is a tipping point for latency issues. This tipping point may be lower depending on your organization's tolerance for latency.
+Once you determine an ideal active threshold for active connections (example: 100), then we can use that information to determine when scale NGINX Ingress Controller.
+
+### PART 4: Autoscale NGINX Ingress Controller
+
+This part will be focused on the following parts:
+
+- Configure an autoscaling policy using KEDA
+- Generate a traffic surge with Locust
+- Observe how NGINX Ingress Controller autoscales to cope with the traffic surge
+
+#### Step 1: Install KEDA
+
+Now it's time to build a configuration that autoscales resources as the load (traffic) increases.
+
+For this task, you'll use KEDA, a Kubernetes event-driven autoscaler. KEDA integrates a metrics server (the component that stores and transforms metrics for Kubernetes) and it can consume metrics directly from Prometheus (as well as other tools).
+
+<img width="403" alt="image" src="https://user-images.githubusercontent.com/43017632/158035320-95e4d722-bc5e-4b78-99f6-067ef74d6308.png">
+
+- Add "kedacore" to your repositories with:
+```
+helm repo add kedacore https://kedacore.github.io/charts
+helm install keda kedacore/keda
+```
+If successful we will get result liket this,
+```
+NAME: keda
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+```
+
+#### Verify KEDA Installation
+
+```
+kubectl get pods
+```
+<img width="489" alt="image" src="https://user-images.githubusercontent.com/43017632/158035444-dd273880-3e82-440c-b5e1-9a4baa35d59c.png">
+
+
+
 
 
 
