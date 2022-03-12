@@ -100,3 +100,16 @@ This part will be focused on the following parts:
 An Ingress controller is a regular pod that bundles a reverse proxy (NGINX) with some code that integrates with Kubernetes. If our app will receive a lot of traffic, we will want to scale the number of NGINX Ingress Controller pods and increase the replica count. To do this, we need metrics.
 
 NGINX Ingress Controller [exposes multiple metrics](https://github.com/nginxinc/nginx-prometheus-exporter#exported-metrics). There are eight metrics for the NGINX Ingress Controller you're using in this lab (based on NGINX Open Source) and 80+ metrics for the option based on NGINX Plus.
+
+First we get the IP address of the NGINX Ingress Controller pod. 
+
+```
+kubectl get pods -o wide
+```
+We get results like this in the screen
+<img width="610" alt="image" src="https://user-images.githubusercontent.com/43017632/158031245-b2e7e03d-e5f5-4851-87f4-e1b82871200b.png">
+
+Now we create a ***temporary*** pod
+```
+kubectl run -ti --rm=true busybox --image=busybox
+```
