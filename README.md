@@ -1,6 +1,9 @@
 # AutoscalingKubernetes-HandleHeavyTraffic
 
 ## Problem Scenario
+Your organization built an app in Kubernetes and now it’s getting popular! You went from just a few visitors to hundreds (and sometimes thousands) per day. But there’s a problem…the increased traffic is bottlenecking, causing latency and timeouts for your customers. If you can’t improve the experience, people will stop using the app.
+
+You – the brave Kubernetes engineer – have a solution. You deploy an Ingress controller to route the traffic and set up an autoscale policy so that the number of Ingress controller pods instantly expands and contracts to match traffic fluctuations. Now, your Ingress controller pods seamlessly handle the traffic surges - "Goodbye, latency!", and when traffic decreases the pods scale down to conserve resources - "Hello, cost savings!" - well done, you.
 
 
 ## Description and Technology Used
@@ -10,6 +13,28 @@
 
 
 ### Part 1
+We use a YAML file to create a Deployment with a single replica and a service.
+We will Deploy the Podinfo App
+```
+kubectl apply -f 1-deployment.yaml
+```
+You should get this output:
+```
+deployment.apps/podinfo created
+service/podinfo created
+```
+We can confirm using the following command
+
+```
+kubectl get pods
+```
+It will retrieve your app - "podinfo" - and should show 1/1 and "running". You won't see any other pods since this is the first item deployed in your cluster.
+
+```
+NAME                       READY   STATUS    RESTARTS   AGE
+podinfo-5d76864686-rd2s5   1/1     Running   0     
+
+```
 
 
 ### Part 2
