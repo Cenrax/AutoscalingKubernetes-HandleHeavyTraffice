@@ -72,6 +72,8 @@ kubectl get pods
 
 ```
 We will see a result like this
+
+
 <img width="506" alt="image" src="https://user-images.githubusercontent.com/43017632/158030864-ad4eeb25-fef4-4ac1-8788-e8571b50cf5b.png">
 
 #### Step 2: Ingress manifest to route traffic to your app
