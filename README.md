@@ -94,3 +94,9 @@ This part will be focused on the following parts:
 - Use Prometheus to get visibility into NGINX Ingress Controller performance
 - Use Locust to simulate a traffic surge
 - Observe the impact of increased traffic on NGINX Ingress Controller performance
+
+#### Step 1: Exploring Metrics
+
+An Ingress controller is a regular pod that bundles a reverse proxy (NGINX) with some code that integrates with Kubernetes. If our app will receive a lot of traffic, we will want to scale the number of NGINX Ingress Controller pods and increase the replica count. To do this, we need metrics.
+
+NGINX Ingress Controller [exposes multiple metrics](https://github.com/nginxinc/nginx-prometheus-exporter#exported-metrics). There are eight metrics for the NGINX Ingress Controller you're using in this lab (based on NGINX Open Source) and 80+ metrics for the option based on NGINX Plus.
