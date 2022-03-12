@@ -229,12 +229,46 @@ REVISION: 1
 TEST SUITE: None
 ```
 
-#### Verify KEDA Installation
+#### Step 2: Verify KEDA Installation
 
 ```
 kubectl get pods
 ```
 <img width="489" alt="image" src="https://user-images.githubusercontent.com/43017632/158035444-dd273880-3e82-440c-b5e1-9a4baa35d59c.png">
+
+To confirm KEDA is running, look for the two KEDA pods (they should be at the top of the list). Note that you should now have the following installed:
+
+KEDA
+Locust
+NGINX Ingress Controller
+Prometheus
+
+#### Step 3: Configuring Autoscaling
+
+We create a yaml for this
+
+Autoscales NGINX Ingress Controller pods from a single pod up to 20 pods.
+Uses the 'nginx_connections_active' metric collected by Prometheus to trigger the autoscaling.
+Deploys a new pod when the existing pod hits 100 active connections.
+
+```
+kubectl apply -f 4-scaled-object.yaml
+```
+
+### Step 4: Inspect KEDA HPA
+Open the Locust dashboard. If the dashboard is still running from the last challenge, click the Stop button and then click *New test* (in the STATUS column).
+This time we'll double the number of active users (from 1000 to 2000) but the other parameters will remain the same:
+Number of users: 2000
+Spawn rate: 10
+Host:
+
+KEDA bridges the metrics collected by Prometheus and feeds them to Kubernetes. It creates a Horizontal Pod Autoscaler (HPA) with those metrics.
+
+Switch back to the terminal tab and manually inspect the KEDA HPA with:
+
+```
+kubectl get hpa
+```
 
 
 
