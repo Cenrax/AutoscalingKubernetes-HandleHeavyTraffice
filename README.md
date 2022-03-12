@@ -21,4 +21,12 @@ Begin by adding the NGINX repository to Helm:
 ```
 helm repo add nginx-stable https://helm.nginx.com/stable
 ```
+Next, download and install NGINX Ingress Controller in your cluster. We're using the open source version maintained by F5 NGINX.
+
+```
+  helm install main nginx-stable/nginx-ingress \
+  --set controller.watchIngressWithoutClass=true
+  --set controller.service.type=NodePort \
+  --set controller.service.httpPort.nodePort=30005
+```
 
