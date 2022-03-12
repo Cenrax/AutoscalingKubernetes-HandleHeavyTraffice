@@ -165,7 +165,19 @@ We can open the prometheus port in our tab and select nginx_ingress_nginx_connec
 
 We will use [Locust](https://locust.io/) to simulate a traffic surge that we can detect with the Prometheus dashboard.
 
-We will create a YAML file (3-locust.yaml) to create a pod for the load generator
+We will create a YAML file (3-locust.yaml) to create a pod for the load generator.
+Locust reads the following locustfile.py, which is stored in a ConfigMap. The script issues a request to the pod with the correct headers.
+```
+from locust import HttpUser, task, between
+
+class QuickstartUser(HttpUser):
+    wait_time = between(0.7, 1.3)
+
+    @task
+    def hello_world(self):
+        self.client.get("/", headers={"Host": "example.com"})
+```
+       
 
 
 
