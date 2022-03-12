@@ -37,7 +37,7 @@ podinfo-5d76864686-rd2s5   1/1     Running   0
 ```
 If everything has run succesfully we will be able to see the app in our localhost
 
-### Part 2
+### Part 2 : Use NGINX Ingress Controller to expose the app
 
 ![image](https://user-images.githubusercontent.com/43017632/158034718-8e150a34-513b-4072-aa31-472b09e0d2cd.png)
 
