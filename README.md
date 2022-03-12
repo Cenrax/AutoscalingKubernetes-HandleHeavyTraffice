@@ -39,6 +39,9 @@ If everything has run succesfully we will be able to see the app in our localhos
 
 ### Part 2
 
+![image](https://user-images.githubusercontent.com/43017632/158034718-8e150a34-513b-4072-aa31-472b09e0d2cd.png)
+
+
 #### Step 1: Install NGINX Ingress Controller using Helm
 The fastest way to install NGINX Ingress Controller is with Helm, which is already installed on this host.
 Begin by adding the NGINX repository to Helm:
