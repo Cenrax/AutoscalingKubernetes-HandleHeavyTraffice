@@ -78,3 +78,13 @@ We will see a result like this
 
 #### Step 2: Ingress manifest to route traffic to your app
 
+For this we use 2-ingress.yaml file and run it using the following command
+
+```
+kubectl apply -f 2-ingress.yaml
+```
+We should get a output like this:
+
+<img width="325" alt="image" src="https://user-images.githubusercontent.com/43017632/158031002-c44d6dbb-4670-4da6-b7f0-a880db34b3f7.png">
+
+
