@@ -270,7 +270,13 @@ Switch back to the terminal tab and manually inspect the KEDA HPA with:
 kubectl get hpa
 ```
 
+Real World Application
+This lab is applicable in the real world, but you should also be aware of a potential limitation of scaling based on the active connections. If NGINX Ingress Controller drops connections because it’s busy, the autoscaler will reduce the number of replicas - making the situation worse. Leveraging a combination of metrics can ensure this doesn't happen. For example, nginxplus_connections_dropped (available with NGINX Plus) let's you keep track of those dropped client connections.
 
+Congratulations! You completed the first Microservices March lab. Be sure to check out the other activities in Unit 1 Architecting Kubernetes Clusters for High-Traffic Websites:
+
+Watch the high-level overview webinar
+Review technical blogs and videos
 
 
 
