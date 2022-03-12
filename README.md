@@ -124,3 +124,8 @@ Use the following command to retrieve a list of the available metrics (note that
 ```
 wget -qO- 172.17.0.4:9113/metrics
 ```
+
+We will get a list of available metrics
+For scaling purposes, ***nginx_connections_active*** is ideal because it keeps track of the number of requests being actively processed, which will help you identify when a pod needs to scale.
+
+Type exit at the command prompt of the temporary pod to get back to the Kubernetes server.
