@@ -113,3 +113,14 @@ Now we create a ***temporary*** pod
 ```
 kubectl run -ti --rm=true busybox --image=busybox
 ```
+It opens a shell like this, don't close this:
+
+<img width="505" alt="image" src="https://user-images.githubusercontent.com/43017632/158031407-f621c2ed-a3f4-4189-96b7-1e43b944de43.png">
+
+
+#### Step 2: View Available Metrics
+Use the following command to retrieve a list of the available metrics (note that it includes the IP address you found earlier):
+
+```
+wget -qO- 172.17.0.4:9113/metrics
+```
