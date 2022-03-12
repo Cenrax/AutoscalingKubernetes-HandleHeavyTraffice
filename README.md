@@ -177,7 +177,15 @@ class QuickstartUser(HttpUser):
     def hello_world(self):
         self.client.get("/", headers={"Host": "example.com"})
 ```
- 
+```
+kubectl apply -f  3-locust.yaml
+```
+If successful, you will see:
+```
+configmap/locust-script created
+deployment.apps/locust created
+service/locust created
+```
 After deploying the pod successfully, we should see this on the local host (ui of the locust)
 
 <img width="955" alt="image" src="https://user-images.githubusercontent.com/43017632/158035026-17f5426b-ce2a-4644-9500-8c1384b7f57e.png">
