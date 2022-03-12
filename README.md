@@ -177,7 +177,26 @@ class QuickstartUser(HttpUser):
     def hello_world(self):
         self.client.get("/", headers={"Host": "example.com"})
 ```
-       
+ 
+After deploying the pod successfully, we should see this on the local host (ui of the locust)
+
+<img width="955" alt="image" src="https://user-images.githubusercontent.com/43017632/158035026-17f5426b-ce2a-4644-9500-8c1384b7f57e.png">
+
+To simulate a traffic surge, enter the following details into Locust:
+
+Number of users: 1000
+Spawn rate: 10
+Host: http://main-nginx-ingress
+Click "Start swarming" and observe the traffic reaching NGINX Ingress Controller.
+
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/43017632/158035096-00ceec5a-b4ab-4f5c-8672-3adcafc74dd4.png">
+
+
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/43017632/158035186-ba225d5d-06ad-46fc-9ad3-dc4cc479ca44.png">
+
+
+
+
 
 
 
