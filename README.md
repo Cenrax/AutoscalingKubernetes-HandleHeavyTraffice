@@ -30,3 +30,17 @@ Next, download and install NGINX Ingress Controller in your cluster. We're using
   --set controller.service.httpPort.nodePort=30005
 ```
 
+If successful, you should see something similar to this output:
+```
+NAME: main
+LAST DEPLOYED: Tue Feb 22 19:49:17 2022
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+The NGINX Ingress Controller has been installed.
+```
+
+#### Step 2: Ingress manifest to route traffic to your app
+
