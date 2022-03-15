@@ -282,6 +282,10 @@ kubectl get hpa
 
 In the above figure we see that new pods are getting created.
 
+<img width="924" alt="image" src="https://user-images.githubusercontent.com/43017632/158469172-c97563d4-5301-45a1-a52d-10152d1e5306.png">
+
+
+
 
 Real World Application
 This lab is applicable in the real world, but you should also be aware of a potential limitation of scaling based on the active connections. If NGINX Ingress Controller drops connections because it’s busy, the autoscaler will reduce the number of replicas - making the situation worse. Leveraging a combination of metrics can ensure this doesn't happen. For example, nginxplus_connections_dropped (available with NGINX Plus) let's you keep track of those dropped client connections.
